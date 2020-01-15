@@ -23,4 +23,14 @@ public class Customer {
     public ArrayList<IDrive> getVehicles() {
         return new ArrayList<IDrive>(this.vehicles);
     }
+
+    public void addVehicle(IDrive vehicle) {
+        this.vehicles.add(vehicle);
+    }
+
+    public void buyVehicle(Car car) {
+        this.money -= car.getPrice();
+        addVehicle(car);
+    }
+     
 }

@@ -6,10 +6,15 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
 
     Customer customer;
+    Engine engine;
+    Car car;
+
 
     @Before
     public void before() {
         customer = new Customer("Jim", 50000);
+        engine = new Engine(EngineType.PETROL);
+        car = new Car(engine, 2, 1000.50, "Blue");
     }
 
     @Test
@@ -23,5 +28,16 @@ public class CustomerTest {
     @Test
     public void customerVehiclesStartsEmpty() {
         assertEquals(0, customer.getVehicles().size());
+    }
+    @Test
+    public void canAddVehicleToVehicles(){
+        customer.addVehicle(car);
+        assertEquals(1, customer.getVehicles().size());
+    }
+
+    @Test
+    public void customerCanBuyVehicle() {
+        customer.buyVehicle(car);
+        assertEquals(48999.50, customer.getMoney(), 0.01);
     }
 }
