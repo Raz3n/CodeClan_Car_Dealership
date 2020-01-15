@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements IDrive {
 
     Engine engine;
     ArrayList<Tyre> tyres;
@@ -17,7 +17,29 @@ public abstract class Vehicle {
         addTyres();
     }
 
+    public Engine getEngine() {
+        return engine;
+    }
 
+    public ArrayList<Tyre> getTyres() {
+        return tyres;
+    }
 
+    public int getDoors() {
+        return doors;
+    }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void addTyres() {
+        for (int i = 0; i < 4; i++) {
+            tyres.add(new Tyre(TyreType.LARGE));
+        }
+    }
 }

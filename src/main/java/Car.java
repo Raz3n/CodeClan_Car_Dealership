@@ -5,4 +5,7 @@ public class Car extends Vehicle {
     }
 
 
+    public String drive() {
+        return "Broom broom";
+    }
 }
